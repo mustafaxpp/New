@@ -13,6 +13,18 @@
                                 <input type="text" wire:model="name" id="form3Example1" class="form-control" />
                                 @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
+                            <!-- Category_id -->
+                            <div class="form-outline mb-2">
+                            <label class="form-label" for="form3Example1"> Category </label>
+                                <select class="form-control rounded mb-2" wire:model="main_id">
+                                    <option value="">Select Category</option>
+                                    @forelse ( \App\Models\Category::all() as $cat)
+                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                    @empty
+                                        <option value="">Empty</option>
+                                    @endforelse
+                                </select>
+                            </div>
                             <!-- Submit button -->
                             <a type="button" wire:click="save" class="btn btn-primary btn-block mb-4"> Save </a>`
                         </div>
@@ -38,8 +50,7 @@
                         <tr>
                          <th>id</th>
                          <th>Name</th>
-                         {{-- <th>Sub Category</th> --}}
-                         {{-- <th>Main Category</th> --}}
+                         <th>Main Category</th>
                          <th>&nbsp;</th>
                          <th>&nbsp;</th>
                         </tr>
@@ -50,8 +61,7 @@
                          <tr>
                              <td class="text-danger">{{$cat->id}}</td>
                              <td class="text-primary">{{$cat->name}}</td>
-                             {{-- <td class="text-primary">{{$cat->sub_categoires->name}}</td> --}}
-                             {{-- <td class="text-primary">{{$cat->main_categoires->name}}</td> --}}
+                             <td class="text-primary">{{$cat->category_id}}</td>
                              <td><a class="btn btn-sm btn-success" title="Edit {{$cat->name}}" wire:click='edit({{$cat->id}})'> Edit </a> </td>
                              <td><a class="btn btn-sm btn-danger" title="Delete {{$cat->name}}"  data-toggle="modal" data-target="#exampleModal{{$cat->id}}"> X </a> </td>
                          </tr>

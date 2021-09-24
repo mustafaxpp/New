@@ -40,6 +40,7 @@ Route::prefix("/dashboard")->middleware(['cheack_role' ,'auth:sanctum','verified
     Route::get('/categories', [CategoryController::class, "index"])->name('categories');
     Route::get('/quezes', [QuezeController::class, "index"])->name('quezes');
     Route::get('/students', [StudentController::class, "index"])->name('students');
+    Route::get('/student/{id}/profile', [StudentController::class, "show"])->name('student.profile');
     Route::get('/admins', [AdminController::class, "index"])->name('admins');
 
 });

@@ -2,11 +2,11 @@
 
 
 @section("title")
-    Students
+    Student Srofile
 @endsection
 
 @section("content")
-    @livewire('student-component' )
+    @livewire('show-student-profile-component' , ['student'=>$student])
 @endsection
 
 

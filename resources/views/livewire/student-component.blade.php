@@ -93,7 +93,7 @@
                                @if ($student->role == 'student')
                                 <tr>
                                     <td class="text-danger">{{$loop->iteration}}</td>
-                                    <td class="text-primary">{{$student->name}}</td>
+                                    <td class="text-primary"><a href="student/{{$student->id}}/profile">{{$student->name}}</a></td>
                                     <td class="text-success">{{$student->email}}</td>
                                     <td class="items-center">
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -45,7 +46,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = User::find($id);
+        return view('students Profile.show_student_profile' , ['student'=>$student]);
     }
 
     /**

@@ -11,7 +11,7 @@ class CategoriesComponent extends Component
     use WithFileUploads;
 
     public $name ;
-    public $cat_id;
+    public $main_id;
     public $category_id ;
 
     protected $rules = [
@@ -42,7 +42,12 @@ class CategoriesComponent extends Component
          }
 
          $category->name = $this->name;
-         $category->category_id = $this->cat_id;
+         if($this->main_id){
+             $category->category_id = $this->main_id;
+            }else{
+                $category->category_id = null ;
+
+            }
          $category->save();
          $this->clear();
         session()->flash('message', 'Category '. $category->name .' Added successfully .');
@@ -54,7 +59,7 @@ class CategoriesComponent extends Component
         public function clear()
         {
             $this->name = null ;
-            $this->cat_id = null ;
+            $this->main_id = null ;
             $this->category_id = null ;
         }
 
@@ -64,7 +69,7 @@ class CategoriesComponent extends Component
             $category = Category::find($category_id);
             $this->category_id = $category->id;
             $this->name = $category->name;
-            $this->cat_id = $category->category_id;
+            $this->main_id = $category->category_id;
      }
 
      // Delete Function

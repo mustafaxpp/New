@@ -97,7 +97,7 @@
                 @auth
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="image">
-                        <img src="{{ Auth::user()->profile_photo_url }}"  alt="{{ Auth::user()->name }}" class="h-10 w-10 rounded-full" alt="User Image">
+                        <img src="{{ Auth::user()->profile_photo_url }}"  alt="{{ Auth::user()->name }}" class="h-10 w-10 profile-user-img img-fluid img-circle" alt="User Image">
                     </div>
                     @else
                     <div class="image">
@@ -241,7 +241,7 @@
 
            {{-- Students --}}
            <li class="nav-item menu-open mb-3">
-            <a href="{{ route('students') }}" class="nav-link {{ Request::is('dashboard/students') ? 'active' : ''}}">
+            <a href="{{ route('students') }}" class="nav-link {{ Request::is('dashboard/students' ) ? 'active' : ''}}">
               <i class="nav-icon gap-3 fas fa-user-graduate"></i>
               <p>
                 Students
