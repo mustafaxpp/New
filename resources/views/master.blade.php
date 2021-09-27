@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,7 +177,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    {{-- <a href="{{ route('dashboard.home') }}" class="brand-link">
+    {{-- <a href="{{ route('dashboard') }}" class="brand-link">
       <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a> --}}
@@ -333,70 +332,9 @@
 
     <!-- Main content -->
     <section class="content">
-
-        <!-- Default box -->
-        <div class="card card-solid">
-          <div class="card-body pb-0">
-            <div class="row">
-                @forelse (\App\Models\User::all() as $user )
-                <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                    <div class="card bg-light d-flex flex-fill">
-                      <div class="card-header text-muted border-bottom-0">
-                        Digital Strategist
-                      </div>
-                      <div class="card-body pt-0">
-                        <div class="row">
-                          <div class="col-7">
-                            <h2 class="lead"><b>{{$user->name}}</b></h2>
-                            <p class="text-muted text-sm"><b>Role: </b>
-                                @if ($user->role == 'admin')
-                                    <span class="text-green"> {{$user->role}} </span>
-                                @else
-
-                                    <span class="text-primary"> {{$user->role}} </span>
-                                @endif
-                            </p>
-                            <ul class="ml-4 mb-0 fa-ul text-muted">
-                              <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                              <li class="small text-danger"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> {{$user->email}}</li>
-                            </ul>
-                          </div>
-                        @if ($user->profile_photo_path)
-                          <div class="col-5 text-center">
-                            <img src="{{ url('storage/' . $user->profile_photo_path) }}" alt="user-avatar" class="img-circle img-fluid">
-                          </div>
-                        @else
-                          <div class="col-5 text-center">
-                              <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
-                            </div>
-                        @endif
-                        </div>
-                      </div>
-                      <div class="card-footer">
-                        <div class="text-right">
-                          <a href="#" class="btn btn-sm bg-teal">
-                            <i class="fas fa-comments"></i>
-                          </a>
-                          <a href="/dashboard/{{$user->role}}/{{$user->id}}/profile" class="btn btn-sm btn-primary">
-                            <i class="fas fa-user"></i> View Profile
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                @empty
-
-                @endforelse
-
-            </div>
-          </div>
-          <!-- /.card-body -->
-          <!-- /.card-footer -->
-        </div>
-        <!-- /.card -->
-
+        @yield('content')
+        <!-- /.container-fluid -->
     </section>
-
     <!-- /.content -->
   </div>
   <!-- Control Sidebar -->
@@ -441,10 +379,8 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-        @stack('modals')
+    @stack('modals')
 
-        @livewireScripts
+    @livewireScripts
 </body>
 </html>
-
-

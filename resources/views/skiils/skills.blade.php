@@ -1,5 +1,5 @@
 
-@extends("index")
+@extends("master")
 
 @section("title")
     Skiils

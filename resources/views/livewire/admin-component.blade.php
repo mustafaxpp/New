@@ -93,7 +93,7 @@
                                @if ($admin->role == 'admin')
                                 <tr>
                                     <td class="text-danger">{{$loop->iteration}}</td>
-                                    <td class="text-primary">{{$admin->name}}</td>
+                                    <td class="text-primary"><a href="/dashboard/admin/{{$admin->id}}/profile">{{$admin->name}}</a></td>
                                     <td class="text-success">{{$admin->email}}</td>
                                     <td class="items-center">
 
